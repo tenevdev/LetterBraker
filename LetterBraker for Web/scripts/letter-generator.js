@@ -19,8 +19,21 @@
 	LG = {};
 
 	LG.keyCode = 65 //a;
+	LG.letterCounter = new Array();
 	LG.refreshCount = 0;
+
+	LG.addToLetterCount = function (letterCode){
+		if (LG.letterCounter[letterCode - 65] === undefined) LG.letterCounter[letterCode - 65] = 0;
+		LG.letterCounter[letterCode - 65] ++;
+		return;
+	}
+
+	LG.capitalise = function (letter){
+		if (letter >= 97 && letter <= 122) return letter - 32;
+		return letter;
+	}
 	LG.refresh = function(){
 			LG.keyCode = generateRandomKeyCode();
+			LG.addToLetterCount(LG.keyCode);
 		}
 })();

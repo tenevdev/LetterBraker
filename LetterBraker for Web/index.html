@@ -30,7 +30,9 @@
 		root.innerText = String.fromCharCode(LG.keyCode);
 
 		function keyPressed(e){
-			if(e.keyCode === LG.keyCode || e.keyCode - 32 === LG.keyCode){
+			var inputLetterCode = LG.capitalise(e.keyCode); // contains the capitalised version of the input letter
+			//console.log(String.fromCharCode(inputLetterCode) + " " + LG.letterCounter[inputLetterCode - 65]); // shows the input letter count in the console
+			if(inputLetterCode === LG.keyCode){
 				LG.refresh();
 				root.innerText = String.fromCharCode(LG.keyCode);
 				points.innerText = ++LG.refreshCount;

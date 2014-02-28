@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Letter Braker</title>
+	<link rel="stylesheet" type="text/css" href="styles/standard-styles.css">
 	<script type="text/javascript" src="scripts/letter-generator.js"></script>
 </head>
 <body>
@@ -16,6 +17,7 @@
 		<div id="wrapper">
 			<p id="letter">
 			</p>
+			<p id="points">0</p>
 		</div>
 	</section>
 
@@ -23,7 +25,22 @@
 	<footer></footer>
 	<script type="text/javascript">
 		var root = document.getElementById("letter");
+		var points = document.getElementById("points");
+		LG.refresh();	
 		root.innerText = String.fromCharCode(LG.keyCode);
+
+		function keyPressed(e){
+			if(e.keyCode === LG.keyCode || e.keyCode - 32 === LG.keyCode){
+				LG.refresh();
+				root.innerText = String.fromCharCode(LG.keyCode);
+				points.innerText = ++LG.refreshCount;
+			}
+			else{
+				return;
+			}
+		}
+
+		document.onkeypress = keyPressed;
 	</script>
 </body>
 </html>

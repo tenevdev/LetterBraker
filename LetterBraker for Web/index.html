@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Letter Braker</title>
+	<script type="text/javascript" src="scripts/letter-generator.js"></script>
 </head>
 <body>
 	<!-- Contains page title and navigation panel -->
@@ -11,9 +12,18 @@
 	<aside></aside>
 
 	<!-- Root panel for the game windows -->
-	<section></section>
+	<section>
+		<div id="wrapper">
+			<p id="letter">
+			</p>
+		</div>
+	</section>
 
 	<!-- Information, Like, Share, Send feedback -->
 	<footer></footer>
+	<script type="text/javascript">
+		var root = document.getElementById("letter");
+		root.innerText = String.fromCharCode(LG.keyCode);
+	</script>
 </body>
 </html>
